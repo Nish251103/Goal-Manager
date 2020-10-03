@@ -1,7 +1,10 @@
-#include<fstream.h>
-#include<conio.h>
+#include<fstream>
+#include<curses.h>
 #include<string.h>
 #include<stdio.h>
+#include<iostream>
+
+using namespace std;
 
 class train
 {
@@ -30,9 +33,9 @@ cout<<"\n";
 }
 
 };
-void main()
+int main()
 {
-clrscr();
+erase();
 int idd;
 char ch;
 int choice;
@@ -47,6 +50,7 @@ cin>>choice;
 switch(choice)
 {
 case 1:
+{
 	ofstream fout;
 	fout.open("train.dat",ios::binary|ios::out);
 	do
@@ -59,7 +63,9 @@ case 1:
 	fout.close();
 	cout<<"\nfile created";
 	break;
+}
 case 2:
+{
 	ifstream fin;
 	fin.open("train.dat",ios::binary);
 	fin.seekg(0);
@@ -69,7 +75,9 @@ case 2:
 	}
 	fin.close();
 	break;
+}
 case 3:
+{
 	int flag=0;
 	fstream f;
 	cout<<"enter the id to be modified";
@@ -104,10 +112,12 @@ case 3:
 	fout1.close();
 	cout<<"file created";*/
 	break;
-
+}
 case 4:
+{
 	cout<<"exit";
 	break;
+}
 }
 }
 while(choice!=4);
